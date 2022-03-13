@@ -39,7 +39,9 @@ dimension of 3.  To do so, you have to create a dictionary to map the word and i
 | NLP | 1 |  1 |
 | sad | 0 |  2 |
 | not | 0 | 1 |  
-freqs --> dictionary mappring from (word, class) to frequency.  
+  
+  
+freqs:  dictionary mappring from (word, class) to frequency.  
 In the past two videos, we call this dictionary `freqs`. In the table above, you can see how words like happy and sad  
 tend to take clear sides, while other words like "I, am" tend to be more neutral. Given this dictionary and the tweet,  
 "I am sad, I am not learning NLP", you can create a vector corresponding to the feature as follows.    

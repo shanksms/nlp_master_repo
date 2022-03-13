@@ -10,11 +10,25 @@ You can then compare your prediction with the true value YY. This gives you your
 The following image, summarizes the process. 
 ![](images/supervise_machine_learning.PNG)
 #### Vocabulary and feature extraction
-Given a tweet, or some text, you can represent it as a vector of dimension VV, where VV corresponds to your vocabulary size.  
+Given a tweet, or some text, you can represent it as a vector of dimension |V|, where |V| corresponds to your vocabulary size.  
 If you had the tweet "I am happy because I am learning NLP", then you would put a 1 in the corresponding index for any word  
 in the tweet, and a 0 otherwise.  
 
-As you can see, as VV gets larger, the vector becomes more sparse. Furthermore, we end up having many more features and  
-end up training \thetaθ VV parameters. This could result in larger training time, and large prediction time.  
+As you can see, as |V| gets larger, the vector becomes more sparse. Furthermore, we end up having many more features and  
+end up training θ |V| parameters. This could result in larger training time, and large prediction time.  
 ![](images/vocab_and_feature_extraction.PNG)  
+
+Clearly we there should be another way to reduce number of parameters
+
+#### Feature Extraction with frequencies
+Given a corpus with positive and negative tweets:  
+| Positive Tweets      | Negative Tweets |
+| ----------- | ----------- |
+| I am happy because i am learning NLP      | I am sad, i am learning NLP       |
+| I am happy   | I am sad        |  
+
+you have to encode each tweet as a vector. Previously, this vector was of dimension V. Now you can represent it with a  
+dimension of 3.  To do so, you have to create a dictionary to map the word and its class to the number of times it appeared in the class. 
+  
+
 

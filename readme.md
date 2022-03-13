@@ -16,5 +16,5 @@ in the tweet, and a 0 otherwise.
 
 As you can see, as VV gets larger, the vector becomes more sparse. Furthermore, we end up having many more features and  
 end up training \thetaθ VV parameters. This could result in larger training time, and large prediction time.  
-~[](images/vocab_and_feature_extraction.PNG)  
+![](images/vocab_and_feature_extraction.PNG)  
 

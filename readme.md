@@ -28,7 +28,28 @@ Given a corpus with positive and negative tweets:
 | I am happy   | I am sad        |  
 
 you have to encode each tweet as a vector. Previously, this vector was of dimension V. Now you can represent it with a  
-dimension of 3.  To do so, you have to create a dictionary to map the word and its class to the number of times it appeared in the class. 
+dimension of 3.  To do so, you have to create a dictionary to map the word and its class to the number of times it appeared in the class.  
+| Vocab      | Positive Freq | Negative Freq |
+| ----------- | ----------- | ----------- |
+| I | 3 | 3 |
+| am | 3 | 3 |
+| happy | 2 | 0 |
+| because | 1  | 0 |
+| learning | 1 | 1 |
+| NLP | 1 |  1 |
+| sad | 0 |  2 |
+| not | 0 | 1 |  
+freqs --> dictionary mappring from (word, class) to frequency.  
+In the past two videos, we call this dictionary `freqs`. In the table above, you can see how words like happy and sad  
+tend to take clear sides, while other words like "I, am" tend to be more neutral. Given this dictionary and the tweet,  
+"I am sad, I am not learning NLP", you can create a vector corresponding to the feature as follows.    
+![](images/positive_freq.PNG)
+To encode the negative frequencies, you can do the same thing.  
+![](images/neg_freq.PNG)  
+
+
+
+
   
 
 

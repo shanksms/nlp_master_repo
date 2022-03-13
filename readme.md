@@ -47,7 +47,11 @@ tend to take clear sides, while other words like "I, am" tend to be more neutral
 "I am sad, I am not learning NLP", you can create a vector corresponding to the feature as follows.    
 ![](images/positive_freq.PNG)
 To encode the negative frequencies, you can do the same thing.  
-![](images/neg_freq.PNG)  
+![](images/neg_frequency.PNG) 
+  
+Hence you end up getting the following feature vector [1,8,11][1,8,11]. 11 corresponds to the bias, 88 the positive feature,  
+and 1111 the negative feature.
+ 
 
 
 

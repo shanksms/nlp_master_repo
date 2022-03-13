@@ -66,6 +66,16 @@ When preprocessing, you have to perform the following:
 For example the following tweet "@YMourri and @AndrewYNg are tuning a GREAT AI model at https://deeplearning.ai!!!" after preprocessing becomes.  
 [tun,great,ai,model].  
 Hence you can see how we eliminated handles, tokenized it into words, removed stop words, performed stemming, and converted everything to lower case.  
+Overall process can be represented as below:  
+![](images/overall_process.PNG)  
+Your XX becomes of dimension (m,3)(m,3) as follows.  
+![](images/feature_vector.PNG)
+When implementing it with code, it becomes as follows:  
+![](images/feature_extraction_code.PNG)  
+
+
+
+
 
 
   

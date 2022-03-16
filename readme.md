@@ -2,8 +2,7 @@
 ### resources
 [Coursera NLP course] (https://www.coursera.org/learn/classification-vector-spaces-in-nlp)
 
-### Logistics Regression
-In this, we will classify tweets in to positive or negative sentiments using Logistic regression. Let us first understand supervised machine learning:
+
 #### Supervised machine learning   
 In supervised machine learning, you usually have an input X, which goes in to your prediction function to get you ŷ.  
 You can then compare your prediction with the true value YY. This gives you your cost which you use to update the parameters θ (theta).  
@@ -72,6 +71,19 @@ Your X becomes of dimension (m,3) as follows:
 ![](images/feature_vector.PNG)
 When implementing it with code, it becomes as follows:  
 ![](images/feature_extraction_code.PNG)  
+
+### Logistics Regression Overview
+In this, we will classify tweets in to positive or negative sentiments using Logistic regression.  
+Logistic regression makes use of the sigmoid function which outputs a probability between 0 and 1. The sigmoid function with some weight parameter θ and some input x^(i) 
+is defined as follows.  
+![](images/sigmoid_function_overview.PNG)  
+Note that as θ^T x^(i)  gets closer and closer to −∞  the denominator of the sigmoid function gets larger and larger and as a result, the sigmoid gets closer to 0 On the other hand, as \theta^Tx^{(i)}θ 
+θ^T x^(i)  gets closer and closer to ∞  the denominator of the sigmoid function gets closer to 1 and as a result the sigmoid also gets closer to 1.   
+  
+Now given a tweet, you can transform it into a vector and run it through your sigmoid function to get a prediction as follows:  
+![](images/sigmoid_function_example.PNG)  
+
+ 
 
 
 

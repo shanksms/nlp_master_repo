@@ -149,9 +149,8 @@ Now, lets compute the sentiment of a new tweet.
 
 #### Laplacian smoothing
 We usually compute the probability of a word given a class as follows:  
-P(W(i) | class) = freq(W(i), class) / N(class)  
-
-![\Large P({W}_{i} | class)=\frac{freq{W}_{i}}{{N}_{class}}](https://latex.codecogs.com/svg.latex?\Large&space;P({W}_{i}|class)=\frac{freq{W}_{i}}{{N}_{class}})  
+![\Large P({W}_{i} | class)=\frac{freq({W}_{i}, class)}{{N}_{class}}](https://latex.codecogs.com/svg.latex?\Large&space;P({W}_{i}|class)=\frac{freq({W}_{i},class)}{{N}_{class}})  
+  
  
 
 

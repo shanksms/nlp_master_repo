@@ -83,6 +83,20 @@ Note that as θ^T x^(i)  gets closer and closer to −∞  the denominator of th
 Now given a tweet, you can transform it into a vector and run it through your sigmoid function to get a prediction as follows:  
 ![](images/sigmoid_function_example.PNG)  
 
+### LR training
+~[](images/LR_training.PNG)  
+You initialize your parameter \thetaθ, that you can use in your sigmoid, you then compute the gradient that you will use  
+to update \thetaθ, and then calculate the cost. You keep doing so until good enough.   
+
+Note: If you do not know what a gradient is, don't worry about it. I will show you what  
+it is at then end of this week in an optional reading. In a nutshell, the gradient allows you to learn what \thetaθ is  
+so that you can predict your tweet sentiment accurately. 
+Usually you keep training until the cost converges. If you were to plot the number of iterations versus the cost,  
+you should see something like this:  
+![](images/LR_cost_function_graph.PNG)   
+
+
+
  
 
 

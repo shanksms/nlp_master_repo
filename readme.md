@@ -150,7 +150,15 @@ Now, lets compute the sentiment of a new tweet.
 #### Laplacian smoothing
 We usually compute the probability of a word given a class as follows:  
 ![\Large P({W}_{i} | class)=\frac{freq({W}_{i}, class)}{{N}_{class}}](https://latex.codecogs.com/svg.latex?\Large&space;P({W}_{i}|class)=\frac{freq({W}_{i},class)}{{N}_{class}})  
-  
+However, if a word does not appear in the training, then it automatically gets a probability of 0, to fix this we add smoothing as follows:  
+![\Large P({W}_{i}|class)=\frac{freq({W}_{i},class)+1}{({N}_{class}+V)}](https://latex.codecogs.com/svg.latex?\Large&space;P({W}_{i}|class)=\frac{freq({W}_{i},class)+1}{({N}_{class}+V)})  
+Note that we added a 11 in the numerator, and since there are VV words to normalize, we add VV in the denominator.  
+
+N_{class}: frequency of all words in class    
+V: number of unique words in vocabulary  
+
+
+
  
 
 

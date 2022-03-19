@@ -6,7 +6,7 @@ from nltk.corpus import twitter_samples
 
 from logistics_regression.build_frequency import build_freqs, process_tweet
 
-
+# Use numpy.squeeze() to make an (m,1) dimensional array into an (m,) array
 
 nltk.download('twitter_samples')
 nltk.download('stopwords')
@@ -158,8 +158,76 @@ def train_model():
     J, theta = gradientDescent(X, Y, np.zeros((3, 1)), 1e-9, 1500)
     print(f"The cost after training is {J:.8f}.")
     print(f"The resulting vector of weights is {[round(t, 8) for t in np.squeeze(theta)]}")
+    return J, theta
 
+
+# UNQ_C4 GRADED FUNCTION: predict_tweet
+def predict_tweet(tweet, freqs, theta):
+    '''
+    Input:
+        tweet: a string
+        freqs: a dictionary corresponding to the frequencies of each tuple (word, label)
+        theta: (3,1) vector of weights
+    Output:
+        y_pred: the probability of a tweet being positive or negative
+    '''
+    ### START CODE HERE ###
+
+    # extract the features of the tweet and store it into x
+    x = extract_features(tweet, freqs)
+
+    # make the prediction using x and theta
+    y_pred = sigmoid(np.dot(x, theta))
+
+    ### END CODE HERE ###
+
+    return y_pred
+
+
+# UNQ_C5 GRADED FUNCTION: test_logistic_regression
+def test_logistic_regression(test_x, test_y, freqs, theta, predict_tweet=predict_tweet):
+    """
+    Input:
+        test_x: a list of tweets
+        test_y: (m, 1) vector with the corresponding labels for the list of tweets
+        freqs: a dictionary with the frequency of each pair (or tuple)
+        theta: weight vector of dimension (3, 1)
+    Output:
+        accuracy: (# of tweets classified correctly) / (total # of tweets)
+    """
+
+    ### START CODE HERE ###
+
+    # the list for storing predictions
+    y_hat = list()
+
+    for tweet in test_x:
+        # get the label prediction for the tweet
+        y_pred = predict_tweet(tweet, freqs, theta)
+
+        if y_pred > 0.5:
+            # append 1.0 to the list
+            y_hat.append(1.0)
+        else:
+            # append 0 to the list
+            y_hat.append(0.0)
+
+    # With the above implementation, y_hat is a list, but test_y is (m,1) array
+    # convert both to one-dimensional arrays in order to compare them using the '==' operator
+    y_hat = np.asarray(y_hat)
+    test_y = np.squeeze(test_y)
+    accuracy = np.sum(y_hat == test_y) / test_y.shape[0]
+
+    ### END CODE HERE ###
+
+    return accuracy
 
 if __name__ == '__main__':
-    #prepare_data()
-    train_model()
+    J, theta = train_model()
+    test_x, _, test_y, _, freqs = prepare_data()
+    # Test the accuracy on unseen data
+    tmp_accuracy = test_logistic_regression(test_x, test_y, freqs, theta)
+    print('test accuracy is ', tmp_accuracy)
+    for tweet in ['I am happy', 'I am bad', 'this movie should have been great.', 'great', 'great great',
+                  'great great great', 'great great great great']:
+        print('%s -> %f' % (tweet, predict_tweet(tweet, freqs, theta)))

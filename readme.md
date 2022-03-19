@@ -112,6 +112,53 @@ The logistic regression cost function is defined as
 As you can see in the picture above, if y = 1 and you predict something close to 0, you get a cost close to -∞. The same applies for then y=0 and you predict something  
 close to 1. On the other hand if you get a prediction equal to the label, you get a cost of 0. In either, case you are trying to minimize J(θ).  
 
+### NB (Naive Bayes) classifier
+![](images/probability_1.PNG)  
+
+#### Bayes Rule
+![](images/bayes_rule.PNG)  
+
+#### Naive Bayes
+To build a classifier, we will first start by creating conditional probabilities given the following table:  
+Positive Tweets:  
+1. I am happy because I am learning NLP
+2. I am happy, not sad
+  
+Negative Tweets:
+1. I am sad, I am not learning NLP
+2. I am sad, not happy  
+
+Lets build the table:
+
+| Word | Pos | Neg  | 
+| ----------- | ----------- |
+| I |  3   | 3 |
+| am  |3 | 3|
+| happy  | 2| 1|
+| because  | 1|0 |
+| learning  | 1|1 |
+| NLP  |1 |1 |
+| sad  |1 | 2|
+| not  |1 | 2|
+|N class | 13 | 12|  
+  
+This allows us compute the following table of probabilities:  
+![](images/conditional_prob.PNG)  
+Now, lets compute the sentiment of a new tweet.  
+![](images/NB_example.PNG)  
+
+
+
+  
+
+
+ 
+  
+
+
+
+
+
 
 
 

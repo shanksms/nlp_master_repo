@@ -96,6 +96,13 @@ you should see something like this:
 ![](images/LR_cost_function_graph.PNG)   
 
 
+### LR Testing
+To test your model, you would run a subset of your data, known as the validation set, on your model to get predictions.  
+The predictions are the outputs of the sigmoid function. If the output is \geq =0.5 ≥=0.5, you would assign it to a positive class.  
+Otherwise, you would assign it to a negative class.  
+![](images/validation_set.PNG)  
+![](images/accuracy.PNG)  
+
 
  
 

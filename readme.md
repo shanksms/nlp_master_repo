@@ -182,6 +182,10 @@ Tokenize sentences
 You can use the table above to compute the probabilities.  
 5) Get λ(w)  
 ![\Large \lambda(w)=log\frac{P(w|pos)}{P(w|neg)}](https://latex.codecogs.com/svg.latex?\Large&space;\lambda(w)=log\frac{P(w|pos)}{P(w|neg)})  
+6) Compute logprior where logprior=log(P(pos)/P(neg))  
+![\Large logprior=log\frac{D_{pos}}{D_{Neg}}](https://latex.codecogs.com/svg.latex?\Large&space;logprior=log\frac{D_{pos}}{D_{Neg}})  
+
+
 
 
 

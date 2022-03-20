@@ -162,7 +162,7 @@ To compute the log likelihood, we need to get the ratios and use them to compute
 a tweet is positive or negative. The higher the ratio, the more positive the word is:  
 ![](images/log_likelihood.PNG)  
 To do inference, you can compute the following:  
-![\Large \frac{P(pos)}{P(Neg)}\times\prod_{i=1}_{m}\times\frac{P({W}_{i} | Pos)}{P({W}_{i} | Neg)}>1](https://latex.codecogs.com/svg.latex?\Large&space;\frac{P(pos)}{P(Neg)}\times\prod_{i=1}_{m}\times\frac{P({W}_{i}|Pos)}{P({W}_{i}|Neg)}>1)  
+![\Large \frac{P(pos)}{P(Neg)}\prod_{i=1}_{m}\frac{P({W}_{i} | Pos)}{P({W}_{i} | Neg)}>1](https://latex.codecogs.com/svg.latex?\Large&space;\frac{P(pos)}{P(Neg)}\prod_{i=1}_{m}\frac{P({W}_{i}|Pos)}{P({W}_{i}|Neg)}>1)  
 
 
  

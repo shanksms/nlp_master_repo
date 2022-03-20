@@ -184,6 +184,23 @@ You can use the table above to compute the probabilities.
 ![\Large \lambda(w)=log\frac{P(w|pos)}{P(w|neg)}](https://latex.codecogs.com/svg.latex?\Large&space;\lambda(w)=log\frac{P(w|pos)}{P(w|neg)})  
 6) Compute logprior where logprior=log(P(pos)/P(neg))  
 ![\Large logprior=log\frac{D_{pos}}{D_{Neg}}](https://latex.codecogs.com/svg.latex?\Large&space;logprior=log\frac{D_{pos}}{D_{Neg}})  
+#### testing NB
+![](images/testing_nb.PNG)  
+
+#### Application of Naive Bayes
+![](images/nb_application.PNG)  
+
+#### NB assumption
+Naïve Bayes makes the independence assumption and is affected by the word frequencies in the corpus. For example, if you had the following:  
+![](images/nb_assumption_1.PNG)  
+In the first image, you can see the word sunny and hot tend to depend on each other and are correlated to a certain extent with the word "desert".  
+Naive Bayes assumes independence throughout. Furthermore, if you were to fill in the sentence on the right, this naive model will assign equal weight to the words  
+"spring, summer, fall, winter".  
+On Twitter, there are usually more positive tweets than negative ones. However, some "clean" datasets you may find are artificially  
+balanced to have to the same amount of positive and negative tweets. Just keep in mind, that in the real world, the data could be much noisier.  
+#### Error analysis 
+ 
+
 
 
 

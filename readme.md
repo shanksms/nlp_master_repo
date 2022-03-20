@@ -181,7 +181,7 @@ Tokenize sentences
 4) Get P(w|pos),P(w|neg)
 You can use the table above to compute the probabilities.  
 5) Get \lambda (w)λ(w)  
-![\Large λ(w)=\log_{e}\frac{P(w∣pos)}{P(w|neg)}](https://latex.codecogs.com/svg.latex?\Large&space;λ(w)=\frac{P(w∣pos)}{P(w|neg)})  
+![\Large λ(w)=\log_{e}\frac{P(w∣pos)}{P(w|neg)}](https://latex.codecogs.com/svg.latex?\Large&space;\frac{P(w∣pos)}{P(w|neg)})  
 
 
   

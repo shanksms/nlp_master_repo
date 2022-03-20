@@ -180,9 +180,8 @@ Tokenize sentences
 ![](images/compute_freq.PNG)  
 4) Get P(w|pos),P(w|neg)
 You can use the table above to compute the probabilities.  
-5) Get \lambda (w)λ(w)  
-![\Large \lambda(w)](https://latex.codecogs.com/svg.latex?\Large&space;\lambda(w))  
-
+5) Get λ(w)  
+![\Large \lambda(w)=log\frac{P(w∣pos)}{P(w∣neg)}](https://latex.codecogs.com/svg.latex?\Large&space;\lambda(w)=log\frac{P(w∣pos)}{P(w∣neg)})  
 
 
 

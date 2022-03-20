@@ -166,6 +166,27 @@ To do inference, you can compute the following:
 ![](images/log_likelihood_lambda.PNG)  
 ![](images/log_likelihood_part2.PNG)  
 
+#### Training Naive Bayes
+To train your naïve Bayes classifier, you have to perform the following steps:
+
+1) Get or annotate a dataset with positive and negative tweets  
+2) Preprocess the tweets: process_tweet(tweet) ➞ [w1, w2, w3, ...]:  
+Lowercase  
+Remove punctuation, urls, names  
+Remove stop words  
+Stemming  
+Tokenize sentences  
+3) Compute freq(w, class):
+![](images/compute_freq.PNG)  
+4) Get P(w|pos),P(w|neg)
+You can use the table above to compute the probabilities.  
+5) Get \lambda (w)λ(w)
+![\Large λ(w)=\log\frac{P(w∣pos)}{P(w|neg)}](https://latex.codecogs.com/svg.latex?\Large&space;λ(w)=\log\frac{P(w∣pos)}{P(w|neg)})  
+
+
+  
+
+
  
 
 

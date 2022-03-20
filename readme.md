@@ -131,7 +131,7 @@ Negative Tweets:
 Lets build the table:
 
 | Word | Pos | Neg  | 
-| ----------- | ----------- |
+| ----------- | ----------- | ---------|
 | I |  3   | 3 |
 | am  |3 | 3|
 | happy  | 2| 1|
@@ -156,6 +156,13 @@ Note that we added a 1 in the numerator, and since there are V words to normaliz
 
 N_{class}: frequency of all words in class    
 V: number of unique words in vocabulary  
+
+#### Log likelihood
+To compute the log likelihood, we need to get the ratios and use them to compute a score that will allow us to decide whether  
+a tweet is positive or negative. The higher the ratio, the more positive the word is:  
+![](images/log_likelihood.PNG)  
+
+
 
 
 

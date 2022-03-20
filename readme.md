@@ -199,7 +199,18 @@ Naive Bayes assumes independence throughout. Furthermore, if you were to fill in
 On Twitter, there are usually more positive tweets than negative ones. However, some "clean" datasets you may find are artificially  
 balanced to have to the same amount of positive and negative tweets. Just keep in mind, that in the real world, the data could be much noisier.  
 #### Error analysis 
- 
+There are several mistakes that could cause you to misclassify an example or a tweet. For example,   
+1. Removing punctuation  
+2. Removing words  
+![](images/error_analysis_1.PNG)  
+3. Word order  
+![](images/error_analysis_2.PNG)  
+4. Adversarial attacks. These include sarcasm, irony, euphemisms.
+
+
+
+
+
 
 
 

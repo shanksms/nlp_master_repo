@@ -1,10 +1,9 @@
 import nltk
 from os import getcwd
 import numpy as np
-import pandas as pd
 from nltk.corpus import twitter_samples
 
-from logistics_regression.build_frequency import build_freqs, process_tweet
+from utils.utils import build_freqs, process_tweet
 
 # Use numpy.squeeze() to make an (m,1) dimensional array into an (m,) array
 

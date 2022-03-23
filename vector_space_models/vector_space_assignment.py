@@ -76,7 +76,49 @@ Return the one with the highest score.
 
 
 def get_country(city1, country1, city2, embeddings, cosine_similarity=cosine_similarity):
-    pass
+    """
+        Input:
+            city1: a string (the capital city of country1)
+            country1: a string (the country of capital1)
+            city2: a string (the capital city of country2)
+            embeddings: a dictionary where the keys are words and
+        Output:
+            countries: a dictionary with the most likely country and its similarity score
+    """
+    group = {city1, country1, city2}
+    city1_vector = embeddings[city1]
+    country1_vector = embeddings[country1]
+    city2_vector = embeddings[city2]
+    country2_vector = country1_vector - city1_vector + city2_vector
+    # Initialize the similarity to -1 (it will be replaced by a similarities that are closer to +1)
+    similarity = -1
+
+    # initialize country to an empty string
+    country = ''
+    # loop through all words in the embeddings dictionary
+    for word in embeddings.keys():
+
+        # first check that the word is not already in the 'group'
+        if word not in group:
+
+            # get the word embedding
+            word_emb = embeddings[word]
+
+            # calculate cosine similarity between embedding of country 2 and the word in the embeddings dictionary
+            cur_similarity = cosine_similarity(country2_vector, word_emb)
+
+            # if the cosine similarity is more similar than the previously best similarity...
+            if cur_similarity > similarity:
+                # update the similarity to the new, better similarity
+                similarity = cur_similarity
+
+                # store the country as a tuple, which contains the word and the similarity
+                country = (word, similarity)
+
+    ### END CODE HERE ###
+
+    return country
+
 
 
 def main():
@@ -97,6 +139,8 @@ def main():
 
     print('cosine similarity', cosine_similarity(king, queen))
     print('euclidian distance', euclidean(king, queen))
+
+    print('Country of Cairo', get_country('Athens', 'Greece', 'Cairo', word_embeddings))
 
 
 if __name__ == '__main__':

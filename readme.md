@@ -208,6 +208,8 @@ There are several mistakes that could cause you to misclassify an example or a t
 4. Adversarial attacks. These include sarcasm, irony, euphemisms.
 
 
+### Vector space models
+
 
 
 

@@ -120,6 +120,92 @@ def get_country(city1, country1, city2, embeddings, cosine_similarity=cosine_sim
     return country
 
 
+"""
+Now you will test your new function on the dataset and check the accuracy of the model:
+
+Accuracy=Correct # of predictions / Total # of predictions
+ 
+Instructions: Write a program that can compute the accuracy on the dataset provided for you. You have to iterate over 
+every row to get the corresponding words and feed them into you get_country function above.
+"""
+def get_accuracy(word_embeddings, data, get_country=get_country):
+
+    correct_count = 0
+    for _, row in data.iterrows():
+        city1 = row['city1']
+        country1 = row['country1']
+        city2 = row['city2']
+        country2 = row['country2']
+        predicted_country, _ = get_country(city1, country1, city2, word_embeddings)
+        if predicted_country == country2:
+            correct_count += 1
+
+    return correct_count / len(data)
+
+
+"""
+You will write a program that takes in a data set where each row corresponds to a word vector.
+
+The word vectors are of dimension 300.
+
+Use PCA to change the 300 dimensions to n_components dimensions.
+
+The new matrix should be of dimension m, n_componentns.
+
+First de-mean the data
+
+Get the eigenvalues using linalg.eigh. Use 'eigh' rather than 'eig' since R is symmetric. The performance gain when using eigh instead of eig is substantial.
+
+Sort the eigenvectors and eigenvalues by decreasing order of the eigenvalues.
+
+Get a subset of the eigenvectors (choose how many principle components you want to use using n_components).
+
+Return the new transformation of the data by multiplying the eigenvectors with the original data.
+"""
+def compute_pca(X, n_components=2):
+    """
+    Input:
+        X: of dimension (m,n) where each row corresponds to a word vector
+        n_components: Number of components you want to keep.
+    Output:
+        X_reduced: data transformed in 2 dims/columns + regenerated original data
+    pass in: data as 2D NumPy array
+    """
+
+    ### START CODE HERE ###
+    # mean center the data
+    X_demeaned = X - np.mean(X, axis=0)
+    #.reshape((X.shape[0], 1))
+
+    # calculate the covariance matrix
+    covariance_matrix = np.cov(X_demeaned, rowvar=False)
+
+    # calculate eigenvectors & eigenvalues of the covariance matrix
+    eigen_vals, eigen_vecs = np.linalg.eigh(covariance_matrix, UPLO='L')
+    # sort eigenvalue in increasing order (get the indices from the sort)
+    idx_sorted = np.argsort(eigen_vals)
+
+    # reverse the order so that it's from highest to lowest.
+    idx_sorted_decreasing = idx_sorted[::-1]
+
+    # sort the eigen values by idx_sorted_decreasing
+    eigen_vals_sorted = eigen_vals[idx_sorted_decreasing]
+
+    # sort eigenvectors using the idx_sorted_decreasing indices
+    eigen_vecs_sorted = eigen_vecs[:, idx_sorted_decreasing]
+
+    # select the first n eigenvectors (n is desired dimension
+    # of rescaled data array, or dims_rescaled_data)
+    eigen_vecs_subset = eigen_vecs_sorted[:, 0:n_components]
+
+    # transform the data by multiplying the transpose of the eigenvectors with the transpose of the de-meaned data
+    # Then take the transpose of that product.
+    X_reduced = np.dot(eigen_vecs_subset.T, X_demeaned.T).T
+
+    ### END CODE HERE ###
+
+    return X_reduced
+
 
 def main():
     base_path = Path(__file__).parent
@@ -141,6 +227,18 @@ def main():
     print('euclidian distance', euclidean(king, queen))
 
     print('Country of Cairo', get_country('Athens', 'Greece', 'Cairo', word_embeddings))
+
+    accuracy = get_accuracy(word_embeddings, data)
+    print(f"Accuracy is {accuracy:.2f}")
+
+    #########################PCA testing############
+    np.random.seed(1)
+    X = np.random.rand(3, 10)
+    X_reduced = compute_pca(X, n_components=2)
+    print("Your original matrix was " + str(X.shape) + " and it became:")
+    print(X_reduced)
+
+
 
 
 if __name__ == '__main__':

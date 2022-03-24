@@ -210,6 +210,18 @@ There are several mistakes that could cause you to misclassify an example or a t
 
 ### Vector space models
 
+#### PCA
+You can think of PCA as a method that projects our vectors in a space of reduced dimension, while keeping the maximum  
+information about the original vectors in their reduced counterparts. In this case, by maximum infomation we mean that  
+the Euclidean distance between the original vectors and their projected siblings is minimal. Hence vectors that were originally  
+close in the embeddings dictionary, will produce lower dimensional vectors that are still close to each other.
+Before plotting the words, you need to first be able to reduce each word vector with PCA into 2 dimensions and then plot it. The steps to compute PCA are as follows:
+1. Mean normalize the data
+2. Compute the covariance matrix of your data ( Σ ).
+3. Compute the eigenvectors and the eigenvalues of your covariance matrix
+4. Multiply the first K eigenvectors by your normalized data. The transformation should look something as follows:  
+
+
 
 
 
